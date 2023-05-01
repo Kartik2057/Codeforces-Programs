@@ -1,0 +1,66 @@
+{
+	// Place your Java Programs workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Boiler": {
+		"scope": "java",
+		"prefix": "koolhex1",
+		"body": [
+			"//My code is my Identity",
+
+"public static void main(String[] args) ",
+"{",
+"FastScanner sc = new FastScanner(System.in);",
+"PrintWriter pr = new PrintWriter(System.out);",
+"long t=sc.nextLong();",
+"first:",
+"while(t-->0){",
+"//Vector <Pair> = new Vector<>();",
+"//Pair[] pairs=new Pair[n];",
+"int n=sc.nextInt();",
+"long arr[]=new long[n];",
+"//String st = sc.next();",
+"//char c[]=st.toCharArray();",
+"$1",
+"for(int i=0;i<n;i++)",
+"arr[i]=sc.nextLong();",
+"",
+"for(int i=0;i<n;i++)",
+"",
+"}",
+"pr.close();",
+"}",
+"static long gcd(long a, long b)",
+    "{",
+        "if (b == 0)",
+          "  return a;",
+        "else",
+            "return gcd(b,a%b);",
+    "}",
+    "static long andOperator(long a, long b)",
+    "{",
+   
+      // ShiftCount variables counts till
+      // which bit every value will convert to 0
+      "int shiftcount = 0;",
+   
+      // Iterate through every bit of a and b
+      // simultaneously If a == b then we know that beyond
+      // that the and value will remain constant
+      "while (a != b && a > 0) {",
+        "shiftcount++;",
+        "a = a >> 1;",
+        "b = b >> 1;",
+      "}",
+      "return (a << shiftcount);",
+    "}",    
+
+
+		],
+		"description": "Log output to console"
+	}
+}

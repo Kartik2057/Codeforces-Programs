@@ -1,0 +1,133 @@
+{
+	// Place your Java Programs workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print to console": {
+		"scope": "java",
+		"prefix": "koolhex2",
+		"body": [
+            "import java.util.*;",
+            "import java.io.*;",
+            "class ArrayOfPairsSorter {",
+ 
+                "static void sort(Pair[] arr) {",
+                    "Comparator<Pair> comparator = new Comparator<>() {",
+                        "@Override",
+                        "public int compare(Pair p1, Pair p2) {",
+                            "return p2.y",
+                                   " - p1.y; // To compare the first element",
+                                    "        // just",
+                                    "        // change the variable from p1.y",
+                                    "        // - p2.y to p1.x-p2.x.",
+                        "}",
+                    "};",
+                    "Arrays.sort(arr, comparator);",
+                "}",
+            "}",
+            
+            "class Pair {",
+                "int x;",
+                "int y;",
+             
+                "// Constructor",
+                "public Pair(int x, int y) {",
+                "    this.x = x;",
+                "    this.y = y;",
+                "}",
+                
+                "public int getX(){",
+                "    return x;",
+                "}",
+                "public int getY(){",
+                "    return y;",
+                "}",
+                "  // Overriding toString method",
+                "//       for beautiful printing of pairs",
+                "@Override",
+                "public String toString() {",
+                "    return \"(\"+x+\",\"+y+\")\" ;",
+                "}",
+            "}",
+			"class FastScanner ",
+"{",
+    "private BufferedReader reader = null;",
+    "private StringTokenizer tokenizer = null;",
+
+    "public FastScanner(InputStream in)", 
+	"{",
+        "reader = new BufferedReader(new InputStreamReader(in));",
+        "tokenizer = null;",
+    "}",
+
+    "public String next() ",
+	"{",
+        "if (tokenizer == null || !tokenizer.hasMoreTokens()) ",
+		"{",
+            "try ",
+			"{",
+                "tokenizer = new StringTokenizer(reader.readLine());",
+            "} ",
+			"catch (IOException e)", 
+			"{",
+                "throw new RuntimeException(e);",
+            "}",
+        "}",
+        "return tokenizer.nextToken();",
+    "}",
+
+    "public String nextLine()", 
+	"{",
+        "if (tokenizer == null || !tokenizer.hasMoreTokens())", 
+		"{",
+            "try", 
+			"{",
+                "return reader.readLine();",
+            "} ",
+			"catch (IOException e)", 
+			"{",
+                "throw new RuntimeException(e);",
+            "}",
+        "}",
+
+        "return tokenizer.nextToken(\n);",
+    "}",
+
+    "public long nextLong() ",
+	"{",
+       " return Long.parseLong(next());",
+    "}",
+     
+    "public int nextInt()", 
+	"{",
+        "return Integer.parseInt(next());",
+    "}",
+    
+    "public double nextDouble() ",
+	"{",
+    	 "return Double.parseDouble(next());",
+	 "}",
+    
+    "public int[] nextIntArray(int n)", 
+	"{",
+        "int[] a = new int[n];",
+        "for (int i = 0; i < n; i++)",
+            "a[i] = nextInt();",
+        "return a;",
+    "}",
+    
+    "public long[] nextLongArray(int n)", 
+	"{",
+        "long[] a = new long[n];",
+        "for (int i = 0; i < n; i++)",
+            "a[i] = nextLong();",
+        "return a;",
+    "} ",
+"}"
+		],
+		"description": "Log output to console"
+	}
+}
