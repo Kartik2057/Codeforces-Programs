@@ -29,8 +29,8 @@
 "for(int i=0;i<n;i++)",
 "arr[i]=sc.nextLong();",
 "",
-"for(int i=0;i<n;i++)",
-"",
+"for(int i=0;i<n;i++){",
+"}",
 "}",
 "pr.close();",
 "}",
@@ -58,8 +58,7 @@
       "}",
       "return (a << shiftcount);",
     "}",    
-
-
+    "$0",
 		],
 		"description": "Log output to console"
 	}

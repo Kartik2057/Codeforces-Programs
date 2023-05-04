@@ -12,8 +12,8 @@
 		"body": [
             "import java.util.*;",
             "import java.io.*;",
+            "$0",
             "class ArrayOfPairsSorter {",
- 
                 "static void sort(Pair[] arr) {",
                     "Comparator<Pair> comparator = new Comparator<>() {",
                         "@Override",
@@ -126,7 +126,7 @@
             "a[i] = nextLong();",
         "return a;",
     "} ",
-"}"
+"}",
 		],
 		"description": "Log output to console"
 	}
