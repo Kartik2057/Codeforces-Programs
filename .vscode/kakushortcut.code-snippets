@@ -25,7 +25,6 @@
 "long arr[]=new long[n];",
 "//String st = sc.next();",
 "//char c[]=st.toCharArray();",
-"$1",
 "for(int i=0;i<n;i++)",
 "arr[i]=sc.nextLong();",
 "",
