@@ -1,10 +1,10 @@
 /**
- * B_Make_It_Ugly
+ * B_A_BIT_of_a_Construction
  */
 import java.util.*;
 import java.io.*;
 
-public class B_Make_It_Ugly {
+public class B_A_BIT_of_a_Construction {
 
     //My code is my Identity
     public static void main(String[] args) 
@@ -17,32 +17,39 @@ public class B_Make_It_Ugly {
     //Vector <Pair> = new Vector<>();
     //Pair[] pairs=new Pair[n];
     int n=sc.nextInt();
+    long k=sc.nextLong();
     long arr[]=new long[n];
-    Arrays.sort(arr,);
+    long ans=1;
+    long temp_sum=0;
+    while(temp_sum<k){
+        temp_sum+=ans;
+        ans=ans<<1;
+    }
+    if(temp_sum>k){
+        ans=ans>>1;
+        temp_sum-=ans;
+    }
+    ans=ans>>1;
+    long rem = k;
+    long res[] = new long[n];
+    // System.out.println("ans: "+ans);
+    // System.out.println("temp_sum"+temp_sum);
+    if(n==1){
+        res[0]=k;
+    }
+    else{
+        res[0]=temp_sum;
+        res[1]=k-temp_sum;
+        for(int i=2;i<n;i++){
+            res[i]=0;
+        }
+    }
     //String st = sc.next();
     //char c[]=st.toCharArray();
-    for(int i=0;i<n;i++)
-    arr[i]=sc.nextLong();
-    long start = -1;
-    for (int i = 1; i < arr.length; i++) {
-        if(arr[i]!=arr[0])
-        {
-            start=i;
-        }
+    for(int j=0;j<n;j++){
+        System.out.print(res[j]+" ");
     }
-    int min=Integer.MAX_VALUE;
-    int prev=-1;
-    for(int i=1;i<n-1;i++){
-        if(arr[i]!=arr[0]){
-            min = Math.min(min,i-prev-1);
-            min = Math.min(min,n-i-1);
-            prev=i;
-        }
-    }
-    if(min==Integer.MAX_VALUE)
-    System.out.println(-1);
-    else
-    System.out.println(min);
+    System.out.println();
     }
     pr.close();
     }

@@ -1,51 +1,17 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Stack;
 
-class Solution {
-    public int minimumDeletions(String word, int k) {
-        int a[]=new int[26];
-        for(char c:word.toCharArray())
-        {
-            a[c-'a']++;
-        }
-        Arrays.sort(a);
-        int size=0;
-        for(int i=0;i<26;i++)
-        {
-            if(a[i] == 0)
-            {
-                break;
-            }
-            else
-            {
-                size++;
-            }
-        }
-        int ans = Integer.MAX_VALUE;
-        for(int i=0;i<size;i++)
-        {
-            int data=a[i];
-            int min=0;
-            for(int j=0;j<size;j++)
-            {
-                if(a[j]>(data + k))
-                {
-                    min += a[j]-(data + k);
-                }
-                else if(a[j]<data)
-                {
-                    min += a[j];
-                }
-            }
-            ans=Math.min(ans, min);
-            if(ans == 0)
-            {
-                break;
-            }
-        }
-        return ans == Integer.MAX_VALUE ? 0 : ans;   
-    }
+/**
+ * Solution 
+ */
+
+public class Solution  {
     public static void main(String[] args) {
-        Solution s = new Solution();
-        System.out.println(s.sumOfEncryptedInt(new int[]{1,2,3}));
+        HashMap<Integer,Integer> map = new HashMap<>();
+        HashMap<Integer,Integer> temp = new HashMap<>(map);
+        int arr[] = {1,2,4,4};
+        System.out.println(Arrays.binarySearch(arr,3)); 
+        System.out.println(-arr[2]);
     }
 }

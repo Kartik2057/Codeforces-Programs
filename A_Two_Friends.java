@@ -1,10 +1,10 @@
 /**
- * B_Make_It_Ugly
+ * A_Two_Friends
  */
 import java.util.*;
 import java.io.*;
 
-public class B_Make_It_Ugly {
+public class A_Two_Friends {
 
     //My code is my Identity
     public static void main(String[] args) 
@@ -17,34 +17,39 @@ public class B_Make_It_Ugly {
     //Vector <Pair> = new Vector<>();
     //Pair[] pairs=new Pair[n];
     int n=sc.nextInt();
-    long arr[]=new long[n];
-    Arrays.sort(arr,);
+    int arr[]=new int[n+1];
     //String st = sc.next();
     //char c[]=st.toCharArray();
-    for(int i=0;i<n;i++)
-    arr[i]=sc.nextLong();
-    long start = -1;
-    for (int i = 1; i < arr.length; i++) {
-        if(arr[i]!=arr[0])
-        {
-            start=i;
+    for(int i=1;i<=n;i++)
+    arr[i]=sc.nextInt();
+    int res=3;
+    for(int i=1;i<=n;i++){
+        if(arr[arr[i]]==i){
+            res=2;
+            break;
         }
     }
-    int min=Integer.MAX_VALUE;
-    int prev=-1;
-    for(int i=1;i<n-1;i++){
-        if(arr[i]!=arr[0]){
-            min = Math.min(min,i-prev-1);
-            min = Math.min(min,n-i-1);
-            prev=i;
-        }
-    }
-    if(min==Integer.MAX_VALUE)
-    System.out.println(-1);
-    else
-    System.out.println(min);
+    System.out.println(res);
     }
     pr.close();
+    }
+    static void print(int[] arr){
+    for(int i=0;i<arr.length;i++){
+    System.out.print(arr[i]+" ");
+    }
+    System.out.println();
+    }
+    static void print(long[] arr){
+    for(int i=0;i<arr.length;i++){
+    System.out.print(arr[i]+" ");
+    }
+    System.out.println();
+    }
+    static void print(double[] arr){
+    for(int i=0;i<arr.length;i++){
+    System.out.print(arr[i]+" ");
+    }
+    System.out.println();
     }
     static long gcd(long a, long b)
     {

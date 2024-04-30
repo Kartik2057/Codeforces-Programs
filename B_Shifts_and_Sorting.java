@@ -1,10 +1,10 @@
 /**
- * B_Make_It_Ugly
+ * B_Shifts_and_Sorting
  */
 import java.util.*;
 import java.io.*;
 
-public class B_Make_It_Ugly {
+public class B_Shifts_and_Sorting {
 
     //My code is my Identity
     public static void main(String[] args) 
@@ -16,33 +16,25 @@ public class B_Make_It_Ugly {
     while(t-->0){
     //Vector <Pair> = new Vector<>();
     //Pair[] pairs=new Pair[n];
-    int n=sc.nextInt();
-    long arr[]=new long[n];
-    Arrays.sort(arr,);
-    //String st = sc.next();
-    //char c[]=st.toCharArray();
-    for(int i=0;i<n;i++)
-    arr[i]=sc.nextLong();
-    long start = -1;
-    for (int i = 1; i < arr.length; i++) {
-        if(arr[i]!=arr[0])
-        {
-            start=i;
+    // int n=sc.nextInt();
+    // long arr[]=new long[n];
+    String st = sc.next();
+    char c[]=st.toCharArray();
+    // for(int i=0;i<n;i++)
+    // arr[i]=sc.nextLong();
+    long res=0;
+    int prev=st.indexOf('1'),next=st.indexOf('0',prev+1),n=st.length();
+    if(prev==-1 || next==-1){
+        System.out.println(0);
+        continue;
+    }
+    for(;next<n;next++){
+        if(c[next]=='0'){
+            res+=next-prev+1;
+            prev++;
         }
     }
-    int min=Integer.MAX_VALUE;
-    int prev=-1;
-    for(int i=1;i<n-1;i++){
-        if(arr[i]!=arr[0]){
-            min = Math.min(min,i-prev-1);
-            min = Math.min(min,n-i-1);
-            prev=i;
-        }
-    }
-    if(min==Integer.MAX_VALUE)
-    System.out.println(-1);
-    else
-    System.out.println(min);
+    System.out.println(res);
     }
     pr.close();
     }

@@ -1,10 +1,10 @@
 /**
- * B_Make_It_Ugly
+ * C_Minimizing_the_Sum
  */
 import java.util.*;
 import java.io.*;
 
-public class B_Make_It_Ugly {
+public class C_Minimizing_the_Sum {
 
     //My code is my Identity
     public static void main(String[] args) 
@@ -17,34 +17,52 @@ public class B_Make_It_Ugly {
     //Vector <Pair> = new Vector<>();
     //Pair[] pairs=new Pair[n];
     int n=sc.nextInt();
-    long arr[]=new long[n];
-    Arrays.sort(arr,);
+    int k=sc.nextInt();
+    long arr[]=new long[n+1];
+    long dp[][][] = new long[n+1][n+1][11];
+    boolean vis[][][] = new boolean[n+1][n+1][11];
     //String st = sc.next();
     //char c[]=st.toCharArray();
-    for(int i=0;i<n;i++)
+    for(int i=1;i<=n;i++)
     arr[i]=sc.nextLong();
-    long start = -1;
-    for (int i = 1; i < arr.length; i++) {
-        if(arr[i]!=arr[0])
-        {
-            start=i;
-        }
-    }
-    int min=Integer.MAX_VALUE;
-    int prev=-1;
-    for(int i=1;i<n-1;i++){
-        if(arr[i]!=arr[0]){
-            min = Math.min(min,i-prev-1);
-            min = Math.min(min,n-i-1);
-            prev=i;
-        }
-    }
-    if(min==Integer.MAX_VALUE)
-    System.out.println(-1);
-    else
-    System.out.println(min);
+    arr[0] = Long.MAX_VALUE;
+    long min = Long.MAX_VALUE;
+    // for(int i=1;i<=k;i++){
+    //     recur(new long[n+1][n+1][11],new boolean[n+1][n+1][11],1, i, arr, 0);
+    // }
+    System.out.println(recur(dp,vis,1, k, arr, 0));
     }
     pr.close();
+    }
+    static long recur(long[][][] dp,boolean vis[][][],int ind,int k,long[] arr,int dep){
+        if(ind==arr.length || k==0){
+            long res = sum(arr);
+            return res;
+        }
+        if(vis[ind][dep][k])
+        return dp[ind][dep][k];
+        long min=Long.MAX_VALUE;
+        long copy = arr[ind];
+        if(dep!=0 && ind!=dep){
+            arr[ind] = arr[dep];
+            min = Math.min(min, recur(dp,vis,ind+1, k-1, arr,dep));
+        }
+        arr[ind] = copy;
+        if(ind<arr.length-1 && ind!=dep){
+            arr[ind]=arr[ind+1];
+            min = Math.min(min, recur(dp,vis,ind+1, k-1, arr, ind+1));
+        }
+        arr[ind] = copy;
+        min = Math.min(min, recur(dp,vis,ind+1, k, arr, ind));
+        return dp[ind][dep][k]=min;
+    }
+    static long sum(long[] arr){
+        long res=0;
+        for(int i=1;i<arr.length;i++){
+            res+=arr[i];
+        }
+        // System.out.println("sum: "+res);
+        return res;
     }
     static long gcd(long a, long b)
     {

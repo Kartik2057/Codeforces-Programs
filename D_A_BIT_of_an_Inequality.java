@@ -1,10 +1,10 @@
 /**
- * B_Make_It_Ugly
+ * D_A_BIT_of_an_Inequality
  */
 import java.util.*;
 import java.io.*;
 
-public class B_Make_It_Ugly {
+public class D_A_BIT_of_an_Inequality {
 
     //My code is my Identity
     public static void main(String[] args) 
@@ -14,35 +14,48 @@ public class B_Make_It_Ugly {
     long t=sc.nextLong();
     first:
     while(t-->0){
-    //Vector <Pair> = new Vector<>();
+    // Vector <> = new Vector<>();
     //Pair[] pairs=new Pair[n];
     int n=sc.nextInt();
-    long arr[]=new long[n];
-    Arrays.sort(arr,);
+    int bits=32;
+    long aage[] = new long[bits];
+    long peeche[] = new long[bits];
+    long arr[]=new long[n+1];
+    long pre[]=new long[n+1];
+    for (int i = 1; i <=n; i++) {
+        arr[i]=sc.nextLong();
+    }
     //String st = sc.next();
     //char c[]=st.toCharArray();
-    for(int i=0;i<n;i++)
-    arr[i]=sc.nextLong();
-    long start = -1;
-    for (int i = 1; i < arr.length; i++) {
-        if(arr[i]!=arr[0])
-        {
-            start=i;
+    for(int i=1;i<=n;i++)
+    {
+        pre[i]=pre[i-1]^arr[i];
+    }
+    for(int i=1;i<=n;i++){
+        for(int j=0;j<bits;j++){
+            if((1 & (pre[i]>>j))==1)
+            aage[j]++;
         }
     }
-    int min=Integer.MAX_VALUE;
-    int prev=-1;
-    for(int i=1;i<n-1;i++){
-        if(arr[i]!=arr[0]){
-            min = Math.min(min,i-prev-1);
-            min = Math.min(min,n-i-1);
-            prev=i;
+    
+    long res=0;
+    for(int i=1;i<=n;i++){
+        for(int j=bits-1;j>=0;j--){
+            if((1 & (arr[i]>>j))==1){
+                // System.out.println(aage[j]+" "+peeche[j]+" "+i+" "+j);
+                res+=aage[j]*peeche[j];
+                res+=(n-i+1-aage[j]) * (i-peeche[j]);
+                break;
+            }
+        }
+        for(int j=0;j<bits;j++){
+            if((1 & (pre[i]>>j))==1){
+                aage[j]--;
+                peeche[j]++;
+            }
         }
     }
-    if(min==Integer.MAX_VALUE)
-    System.out.println(-1);
-    else
-    System.out.println(min);
+    System.out.println(res);
     }
     pr.close();
     }
