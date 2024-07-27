@@ -1,4 +1,0 @@
-Command failed: javac "c:/Users/Kartik/OneDrive/Documents/Java Programs/dpPractice/temp2.java" C:\Users\Kartik\OneDrive\Documents\Java Programs
-error: invalid flag: C:\Users\Kartik\OneDrive\Documents\Java
-Usage: javac <options> <source files>
-use --help for a list of possible options
